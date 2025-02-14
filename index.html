@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>your name please?</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background: url('bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: white;
+    }
+    @keyframes neonLight {
+      0% {
+        box-shadow: 0 0 10px #ff4757, 0 0 20px #ff4757, 0 0 30px #ff4757, 0 0 40px #ff4757;
+      }
+      50% {
+        box-shadow: 0 0 20px #ff6b81, 0 0 40px #ff6b81, 0 0 60px #ff6b81, 0 0 80px #ff6b81;
+      }
+      100% {
+        box-shadow: 0 0 10px #ff4757, 0 0 20px #ff4757, 0 0 30px #ff4757, 0 0 40px #ff4757;
+      }
+    }
+    .container {
+      text-align: center;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      border-radius: 10px;
+      border: 2px solid #ff4757;
+      animation: neonLight 2s infinite alternate;
+    }
+    input[type="text"] {
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+      width: 80%;
+    }
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background: #ff4757;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #ff6b81;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Your Name please?</h1>
+    <form id="nameForm">
+      <input type="text" id="userName" placeholder="Enter your name" required>
+      <button type="submit">Submit</button>
+    </form>
+    
+  </div>
+  <footer style="position: fixed; bottom: 10px; width: 100%; text-align: center; color: white; font-size: 14px;">
+    &copy; Bro Jeid. All rights reserved <script>document.write(Date.getYear())</script>.
+  </footer>
+
+  <script>
+    document.getElementById('nameForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const userName = document.getElementById('userName').value;
+      localStorage.setItem('valentineName', userName);
+      window.location.href = 'val.html';
+    });
+  </script>
+</body>
+</html>
